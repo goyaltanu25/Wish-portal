@@ -1,0 +1,36 @@
+<div class="card" >
+    <img src="{{Tempdata.picture}}" class="card-img-top" alt="Image not loaded" />
+    <div class="card-body">
+      <h5 class="card-title">{{Tempdata.name}}</h5>
+      <p class="card-text">
+        <strong>Career Level:</strong>{{Tempdata.level}}<br>
+        <strong>D.O.B. </strong>{{Tempdata.dob}}<br>
+        <strong>Project:</strong>{{Tempdata.project}}<br>
+        <strong>Email:</strong>{{Tempdata.email}}<br>
+        <strong>Skills: </strong>{{Tempdata.skills}}</p>
+      <button class="btn btn-primary" data-toggle="modal"
+       data-target="#exampleModal" (click)="open(content)">Let's Wish</button>
+    </div>
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Send Wishes!!</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #form="ngForm" (submit)="send(form)">
+        <div class="form-group">
+          <label for="message">Enter your Wishes!!</label>
+          <div class="input-group">
+            <textarea class="form-control" name="wishes" aria-label="text"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-outline-dark">Send</button>
+        </div>
+      </form>
+    </div>
+    
+  </ng-template>
